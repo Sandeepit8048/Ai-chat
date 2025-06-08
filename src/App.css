@@ -40,3 +40,43 @@
 .read-the-docs {
   color: #888;
 }
+
+.app {
+  font-family: 'Arial', sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.workflow-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.workflow-section {
+  flex: 1;
+  padding: 20px;
+  opacity: 0.3;
+  transition: opacity 0.5s ease;
+  position: relative;
+}
+
+.workflow-section.active {
+  opacity: 1;
+}
+
+.workflow-section::after {
+  content: '→';
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: #666;
+}
+
+.workflow-section:last-child::after {
+  display: none;
+}
