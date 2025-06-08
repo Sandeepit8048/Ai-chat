@@ -1,0 +1,36 @@
+.processing-animation {
+  text-align: center;
+}
+
+.wave-container {
+  margin: 30px 0;
+  position: relative;
+}
+
+.progress-container {
+  height: 10px;
+  background-color: #eee;
+  border-radius: 5px;
+  margin: 20px 0;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(to right, #00b4db, #0083b0);
+  border-radius: 5px;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #00b4db;
+  margin: 10px 0;
+}
+
+.file-info {
+  margin-top: 20px;
+  font-size: 0.9em;
+  color: #666;
+}

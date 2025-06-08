@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-// import './Waveform.css';
+import './Waveform.css';
 
 const Waveform = ({ color1 = '#00b4db', color2 = '#0083b0', animate = false, direction = 'left', intensity = 1 }) => {
   const canvasRef = useRef(null);

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import './DownloadButton.css';
+import './DownloadButton.css';
 
 const DownloadButton = ({ audioFile, originalName }) => {
   const [isDownloading, setIsDownloading] = useState(false);

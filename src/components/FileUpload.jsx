@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import Waveform from './Waveform';
-// import './FileUpload.css';
+import './FileUpload.css';
 
 const acceptedFormats = ['.mp3', '.wav', '.m4a', '.aac'];
 const maxFileSize = 50 * 1024 * 1024; // 50MB
