@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import DownloadButton from './DownloadButton';
-import './AudioPlayer.css';
+// import './AudioPlayer.css';
 
 const AudioPlayer = ({ audioFile, originalName }) => {
   const audioRef = useRef(null);

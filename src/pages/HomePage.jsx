@@ -3,7 +3,8 @@ import FileUpload from '../components/FileUpload';
 import ProcessingAnimation from '../components/ProcessingAnimation';
 import ConversionAnimation from '../components/ConversionAnimation';
 import AudioPlayer from '../components/AudioPlayer';
-import './HomePage.css';
+// import './HomePage.css';
+// import './app.css'; // Assuming styles are in app.css
 
 const HomePage = ({ 
   workflowStep, 

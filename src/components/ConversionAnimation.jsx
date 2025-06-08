@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Waveform from './Waveform';
-import './ConversionAnimation.css';
+// import './ConversionAnimation.css';
 
 const ConversionAnimation = ({ setWorkflowStep, setProcessedAudio, audioFile }) => {
   const [progress, setProgress] = useState(0);
