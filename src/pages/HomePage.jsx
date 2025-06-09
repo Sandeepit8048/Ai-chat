@@ -4,6 +4,7 @@ import ProcessingAnimation from '../components/ProcessingAnimation';
 import ConversionAnimation from '../components/ConversionAnimation';
 import AudioPlayer from '../components/AudioPlayer';
 
+
 const HomePage = ({
   workflowStep,
   setWorkflowStep,
@@ -13,12 +14,12 @@ const HomePage = ({
   setProcessedAudio
 }) => {
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-4 md:px-8 py-6">
+    <div className=" min-h-screen bg-black text-white flex flex-col items-center justify-center px-4 md:px-6 py-4">
      <div>
       <h1 className="text-3xl font-bold mb-4 text-red-600">AI Voice Conversion</h1>
      </div>
-      <div className="w-full max-w-6xl flex  lg:flex-row justify-between items-center gap-8">
-        {/* Left Section - Upload */}
+      <div className="w-full max-w-6xl flex flex-col  lg:flex-row justify-between items-center gap-8">
+
         <div className="flex flex-col items-center space-y-3 w-full lg:w-1/3">
           {workflowStep === 1 ? (
             <FileUpload setWorkflowStep={setWorkflowStep} setAudioFile={setAudioFile} />
@@ -37,7 +38,6 @@ const HomePage = ({
           )}
         </div>
 
-        {/* Center Section - Microphone & Steps */}
         <div className="text-center w-full lg:w-1/3 space-y-4">
           <p className="text-lg font-medium">How can I help you?</p>
           <button className="bg-purple-600 text-white rounded-full px-3 py-1 text-sm">
@@ -93,7 +93,6 @@ const HomePage = ({
           </div>
         </div>
 
-        {/* Right Section - Output */}
         <div className="flex flex-col items-center space-y-4 w-full lg:w-1/3">
           {workflowStep === 5 ? (
             <AudioPlayer audioFile={processedAudio} originalName={audioFile?.name} />
