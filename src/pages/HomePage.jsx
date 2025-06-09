@@ -3,73 +3,109 @@ import FileUpload from '../components/FileUpload';
 import ProcessingAnimation from '../components/ProcessingAnimation';
 import ConversionAnimation from '../components/ConversionAnimation';
 import AudioPlayer from '../components/AudioPlayer';
-// import './HomePage.css';
-// import './app.css'; // Assuming styles are in app.css
 
-const HomePage = ({ 
-  workflowStep, 
-  setWorkflowStep, 
-  audioFile, 
+const HomePage = ({
+  workflowStep,
+  setWorkflowStep,
+  audioFile,
   setAudioFile,
   processedAudio,
   setProcessedAudio
 }) => {
   return (
-    <div className="workflow-container">
-      {/* Left Section - File Upload */}
-      <div className={`workflow-section ${workflowStep >= 1 ? 'active' : ''}`}>
-        {workflowStep === 1 && (
-          <FileUpload 
-            setWorkflowStep={setWorkflowStep} 
-            setAudioFile={setAudioFile}
-          />
-        )}
-      </div>
+    <div className="min-h-screen bg-black text-white flex items-center justify-center px-8 py-6">
+      <div className="w-full max-w-6xl flex justify-between items-center gap-6">
 
-      {/* Center Left - Processing Animation */}
-      <div className={`workflow-section ${workflowStep >= 2 ? 'active' : ''}`}>
-        {workflowStep === 2 && (
-          <ProcessingAnimation 
-            setWorkflowStep={setWorkflowStep} 
-            audioFile={audioFile}
-          />
-        )}
-      </div>
+        {/* Left Section - Upload */}
+        <div className="flex flex-col items-center space-y-3">
+          {workflowStep === 1 ? (
+            <FileUpload setWorkflowStep={setWorkflowStep} setAudioFile={setAudioFile} />
+          ) : (
+            <>
+              <div className="w-40 h-40 border-2 border-dashed rounded-lg flex items-center justify-center">
+                <p className="text-center">Drop 'n' Down</p>
+              </div>
+              <p className="text-sm text-gray-400 text-center max-w-[10rem]">
+                Upload your audio and let our AI transcribe it for you
+              </p>
+              <a href="#" className="text-xs text-purple-400 hover:underline">
+                Learn more
+              </a>
+            </>
+          )}
+        </div>
 
-      {/* Center - AI Conversion */}
-      <div className={`workflow-section ${workflowStep >= 3 ? 'active' : ''}`}>
-        {workflowStep === 3 && (
-          <div className="conversion-section">
-            <h2>AI Voice Conversion</h2>
-            <button 
-              className="convert-button"
-              onClick={() => setWorkflowStep(4)}
+        {/* Center Section - Microphone & Steps */}
+        <div className="text-center space-y-4">
+          <p className="text-lg font-medium">How can I help you?</p>
+            <button className="bg-purple-600 text-white rounded-full px-3 py-1 text-sm">
+              OrderMozarella
+            </button> 
+          <div className="flex flex-wrap gap-2 justify-center">
+            <button className="bg-purple-600 text-white rounded-full px-3 py-1 text-sm">
+              #MakeTeamCall
+            </button>
+          {workflowStep === 2 && (
+            <ProcessingAnimation setWorkflowStep={setWorkflowStep} audioFile={audioFile} />
+          )}
+
+          {workflowStep === 3 && (
+            <div className="conversion-section space-y-2">
+              <h2 className="text-xl font-semibold">AI Voice Conversion</h2>
+              <button
+                className="bg-purple-700 px-4 py-2 rounded-full"
+                onClick={() => setWorkflowStep(4)}
+              >
+                Convert to Hindi
+              </button>
+            </div>
+          )}
+
+          {workflowStep === 4 && (
+            <ConversionAnimation
+              setWorkflowStep={setWorkflowStep}
+              setProcessedAudio={setProcessedAudio}
+              audioFile={audioFile}
+            />
+          )}
+
+          {workflowStep < 2 && (
+            <button
+              className="bg-purple-700 p-4 rounded-full"
+              onClick={() => setWorkflowStep(2)}
             >
-              Convert to Hindi
+              🎤
+            </button>
+          )}
+            <button className="bg-purple-600 text-white rounded-full px-3 py-1 text-sm">
+              OrderCoffee
             </button>
           </div>
-        )}
-      </div>
 
-      {/* Center Right - Conversion Animation */}
-      <div className={`workflow-section ${workflowStep >= 4 ? 'active' : ''}`}>
-        {workflowStep === 4 && (
-          <ConversionAnimation 
-            setWorkflowStep={setWorkflowStep}
-            setProcessedAudio={setProcessedAudio}
-            audioFile={audioFile}
-          />
-        )}
-      </div>
 
-      {/* Right Section - Playback & Download */}
-      <div className={`workflow-section ${workflowStep >= 5 ? 'active' : ''}`}>
-        {workflowStep === 5 && (
-          <AudioPlayer 
-            audioFile={processedAudio}
-            originalName={audioFile?.name}
-          />
-        )}
+          <div className="flex justify-center gap-4 text-xs text-gray-300">
+            <span>🎛 Automation</span>
+            <span>🎧 Sound Devices</span>
+            <span>🔊 Volume</span>
+          </div>
+        </div>
+
+        {/* Right Section - Output */}
+        <div className="flex flex-col items-center space-y-4">
+          {workflowStep === 5 ? (
+            <AudioPlayer audioFile={processedAudio} originalName={audioFile?.name} />
+          ) : (
+            <>
+              <button className="bg-gray-800 p-2 rounded-lg">⬇️</button>
+              <div className="flex items-center space-x-2">
+                <div className="w-3 h-3 bg-green-400 rounded-full" />
+                <span className="text-sm">Microphone</span>
+                <span className="bg-gray-700 text-xs px-1 rounded">LHI</span>
+              </div>
+              <div className="w-1 h-24 bg-green-400 rounded-full" />
+            </>
+          )}
+        </div>
       </div>
     </div>
   );
