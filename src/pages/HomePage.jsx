@@ -31,7 +31,7 @@ const HomePage = ({
               <p className="text-sm text-gray-400 text-center max-w-[10rem]">
                 Upload your audio and let our AI transcribe it for you
               </p>
-              <a href="#" className="text-xs text-purple-400 hover:underline">
+              <a href="./Homepage" className="text-xs text-purple-400 hover:underline">
                 Learn more
               </a>
             </>

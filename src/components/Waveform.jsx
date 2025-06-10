@@ -47,7 +47,7 @@ const Waveform = ({ color1 = '#00b4db', color2 = '#0083b0', animate = false, dir
       ctx.fill();
       
       if (animate) {
-        time += 0.05;
+        time += 0.08;
         animationId = requestAnimationFrame(drawWave);
       }
     };
