@@ -18,7 +18,7 @@ const HomePage = ({
      <div>
       <h1 className="text-3xl font-bold mb-4 text-red-600">AI Voice Conversion</h1>
      </div>
-      <div className="w-full max-w-6xl flex flex-col  lg:flex-row justify-between items-center gap-8">
+      <div className="w-full max-w-6xl flex   lg:flex-row justify-between items-center gap-8">
 
         <div className="flex flex-col items-center space-y-3 w-full lg:w-1/3">
           {workflowStep === 1 ? (
