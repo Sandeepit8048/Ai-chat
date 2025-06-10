@@ -18,7 +18,7 @@ const HomePage = ({
      <div>
       <h1 className="text-3xl font-bold mb-4 text-red-600">AI Voice Conversion</h1>
      </div>
-      <div className="w-full max-w-6xl flex   lg:flex-row justify-between items-center gap-8">
+      <div className="w-full max-w-6xl flex flex-col  lg:flex-row justify-between items-center gap-8">
 
         <div className="flex flex-col items-center space-y-3 w-full lg:w-1/3">
           {workflowStep === 1 ? (
@@ -77,7 +77,7 @@ const HomePage = ({
                 className="bg-purple-700 p-4 rounded-full"
                 onClick={() => setWorkflowStep(2)}
               >
-                🎤
+                Mic🎤
               </button>
             )}
 
@@ -98,7 +98,7 @@ const HomePage = ({
             <AudioPlayer audioFile={processedAudio} originalName={audioFile?.name} />
           ) : (
             <>
-              <button className="bg-gray-800 p-2 rounded-lg">⬇️</button>
+              <button className="bg-gray-800 p-2 rounded-lg">Download⬇️</button>
               <div className="flex items-center space-x-2">
                 <div className="w-3 h-3 bg-green-400 rounded-full" />
                 <span className="text-sm">Microphone</span>
